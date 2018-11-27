@@ -271,6 +271,7 @@ module ActionDispatch
           def call(t, args, inner_options)
             controller_options = t.url_options
             options = controller_options.merge @options
+            options = options.merge CountryCode.url_helper_options
             hash = handle_positional_args(controller_options,
                                           deprecate_string_options(inner_options) || {},
                                           args,
